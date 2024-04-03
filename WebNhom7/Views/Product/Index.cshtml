@@ -1,10 +1,14 @@
-﻿@model IEnumerable<WebNhom7.Models.Product>
+﻿@using Microsoft.Extensions.Localization
+@using WebNhom7.Controllers
+@model IEnumerable<WebNhom7.Models.Product>
+
+@inject IStringLocalizer<ProductController> Localizer
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>@Localizer["Products"]</h1>
 
 <p>
     <a asp-action="Create">Create New</a>

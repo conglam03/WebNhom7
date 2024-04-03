@@ -1,6 +1,4 @@
-﻿using _2180607734_LamQuangMinh.Repositories;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Localization;
+﻿using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
 using WebNhom7.DataAccess;
@@ -46,16 +44,18 @@ namespace WebNhom7
 
                 options.SupportedCultures = cultures;
                 options.SupportedUICultures = cultures;
-
-                services.AddScoped<IProductRepository, EFProductRepository>();
-                services.AddScoped<ICategoryRepository, EFCategoryRepository>();
-
-                // Add services to the container.
-                services.AddControllersWithViews();
-                services.AddDbContext<ApplicationDbContext>(options =>
-
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             });
+
+            // Add services to the container.
+            services.AddControllersWithViews();
+            services.AddDbContext<ApplicationDbContext>(options =>
+
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddScoped<IProductRepository, EFProductRepository>();
+            services.AddScoped<ICategoryRepository, EFCategoryRepository>();
+
+            services.AddHttpContextAccessor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
