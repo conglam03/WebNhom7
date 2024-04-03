@@ -4,7 +4,7 @@ using WebNhom7.DataAccess;
 using WebNhom7.Models;
 using WebNhom7.Repositories;
 
-namespace _2180607734_LamQuangMinh.Repositories
+namespace WebNhom7.Repositories
 {
     public class EFCategoryRepository : ICategoryRepository
     {
